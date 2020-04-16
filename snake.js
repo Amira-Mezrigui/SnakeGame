@@ -134,6 +134,21 @@ snake.unshift(newHead)
   //add the text score
   ctx.fillStyle = "black";
   ctx.fillText(score,24*unity,3*unity)
+  //maxscore
+  let maxScore=localStorage.getItem("maxScore");
+  if (maxScore!=null)
+  {
+  if(score>parseInt(maxScore)){
+    localStorage.setItem("maxScore",score)
+    
+    
+  }}
+  else
+  {localStorage.setItem("maxScore",score);}
+
+  ctx.fillStyle = "black";
+  ctx.font = "30px Ariel"
+  ctx.fillText("the max score is :"+maxScore,2*unity,4*unity);
 }
 
 var justPlay = setInterval(draw,100);
