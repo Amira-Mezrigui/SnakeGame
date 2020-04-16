@@ -54,6 +54,16 @@ background.src = "img/background.jpg";
         y : Math.floor(Math.random()*20+5) *unity
     }
 
+    // cheack winding
+
+function winding(newHead,snake){
+    for(let i = 0; i < snake.length; i++){
+        if(newHead.x == snake[i].x && newHead.y == snake[i].y){
+            return true;
+        }
+    }
+    return false;
+}
 
      /*create the game*/
 
@@ -123,7 +133,8 @@ let newHead = {
 
    /*when the game over*/
    if(snakeNewheadX < 0 || snakeNewheadX ==25 * unity || snakeNewheadY < 5*unity || 
-    snakeNewheadY == 25*unity ||  (snakeNewheadX == bombe.x && snakeNewheadY == bombe.y)){
+    snakeNewheadY == 25*unity || winding(newHead,snake)
+     ||  (snakeNewheadX == bombe.x && snakeNewheadY == bombe.y)){
     clearInterval(justPlay);
     // add sound of dead
     let dead = new Audio();
@@ -148,7 +159,7 @@ snake.unshift(newHead)
 
   ctx.fillStyle = "black";
   ctx.font = "30px Ariel"
-  ctx.fillText("the max score is :"+maxScore,2*unity,4*unity);
+  ctx.fillText("the max score is :"+maxScore,24*unity,4*unity);
 }
 
 var justPlay = setInterval(draw,100);
