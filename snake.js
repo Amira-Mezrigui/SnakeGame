@@ -159,7 +159,7 @@ snake.unshift(newHead)
 
   ctx.fillStyle = "black";
   ctx.font = "30px Ariel"
-  ctx.fillText("the max score is :"+maxScore,15*unity,4*unity);
+  ctx.fillText("the max score is :"+maxScore,10*unity,4*unity);
 }
 
 var justPlay = setInterval(draw,100);
