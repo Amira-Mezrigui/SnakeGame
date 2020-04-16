@@ -2,7 +2,7 @@ var canvas = document.getElementById("snakeCanvas");
 var ctx = canvas.getContext("2d");
 
 // the unity of background
-const unity = 20;
+const unity = 25;
 
 //backgound image
 const groundSnake = new Image();
